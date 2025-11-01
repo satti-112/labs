@@ -1,34 +1,22 @@
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
-
 public class LabTask2 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        // Input: Initialize array  
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        File Obj = new File("data.txt");
-        Scanner Reader = new Scanner(Obj);
-        int [] arr = new int[10];
-        int [] copyArr = new int[10];
-        System.out.println("Array read from file is :");
-        for (int i = 0 ; i < arr.length ; i++){
-            arr[i] = Reader.nextInt();
+        // Process: Call modify function  
+        modify(arr);
+
+        // Output: Print modified array  
+        System.out.print("Modified array: ");
+        for(int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
-        } Reader.close();
-        System.out.println();
-        System.out.println("Arranged array :");
-        int temp;
-        for(int i = 0 ; i < arr.length -1 ; i++){
-            for(int j= 0 ; j < arr.length - i- 1; j++){
-                if(arr[j]> arr[j+1]){
-                    temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
-                }
-            }
-        }
-        for (int i = 0; i < arr.length ; i++) {
-            copyArr[i] = arr[i];
-            System.out.print(copyArr[i] + " ");
         }
     }
-}
+
+    // Process: Multiply each element by 3  
+    static void modify(int[] arr) {
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = arr[i] * 3;
+        }
+    }
+}  
